@@ -1,7 +1,3 @@
-let noteForm;
-let noteTitle;
-let noteText;
-let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
@@ -25,15 +21,21 @@ const hide = (elem) => {
   elem.style.display = 'none';
 };
 
-// activeNote is used to keep track of the note in the textarea
-let activeNote = {};
-
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
+  })
+  .then(response =>{
+    if (!response.ok) {
+      throw new Error('Issue with network response');
+    }
+    return response.json();
+  })
+  .catch(error => {
+    console.error('Error with fetching notes', error);
   });
 
 const saveNote = (note) =>
@@ -43,6 +45,15 @@ const saveNote = (note) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(note)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Issue with POST');
+    }
+    return response.json();
+  })
+  .catch(error => {
+    console.error('Error with saving note',error);
   });
 
 const deleteNote = (id) =>
@@ -51,7 +62,18 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json'
     }
+  })
+  .then(response => {
+    if(!response.ok) {
+      throw new Error('Issue with DELETE')
+    }
+    return response.json();
+  })
+  .catch(error => {
+    console.error('Error with deleting note', error);
   });
+// activeNote is used to keep track of the note in the textarea
+let activeNote = {};
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -117,18 +139,21 @@ const handleNewNoteView = (e) => {
 
 // Renders the appropriate buttons based on the state of the form
 const handleRenderBtns = () => {
-  show(clearBtn);
   if (!noteTitle.value.trim() && !noteText.value.trim()) {
+    hide(saveNoteBtn);
     hide(clearBtn);
   } else if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
+    show(clearBtn);
   } else {
     show(saveNoteBtn);
+    show(clearBtn);
   }
 };
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log(notes);
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
