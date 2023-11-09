@@ -139,6 +139,7 @@ const handleNewNoteView = (e) => {
 
 // Renders the appropriate buttons based on the state of the form
 const handleRenderBtns = () => {
+  show(clearBtn);
   if (!noteTitle.value.trim() && !noteText.value.trim()) {
     hide(saveNoteBtn);
     hide(clearBtn);
@@ -154,7 +155,7 @@ const handleRenderBtns = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   console.log(notes);
-  let jsonNotes = await notes.json();
+  let jsonNotes = notes;
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
