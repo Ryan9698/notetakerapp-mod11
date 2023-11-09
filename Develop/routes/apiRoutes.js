@@ -2,7 +2,9 @@ const router = require('express').Router();
 const path = require('path');
 const store = require('../db/store');
 
+let notes = [];
 router.get('/notes', (req, res) => {
+
     store
         .getNotes()
         .then((notes) => {
@@ -11,7 +13,6 @@ router.get('/notes', (req, res) => {
         .catch((err) => res.status(500).json(err)); 
 
   res.sendFile(path.join(__dirname, '/public/notes.html'))
-  res.json(notes);
 });
 
 router.post('/notes', (req, res) => {
