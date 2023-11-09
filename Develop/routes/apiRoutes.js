@@ -23,8 +23,8 @@ router.post('/notes', (req, res) => {
 
 router.delete('/notes/:id', (req, res) => {
     store
-      .removeNote(res.body)
-      .then((note) => res.json(note))
+      .removeNote(req.params.id)
+      .then(() => res.json({ok:true}))
       .catch((err) => res.status(500).json(err));
   });
 

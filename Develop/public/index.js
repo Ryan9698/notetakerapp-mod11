@@ -1,9 +1,5 @@
 let newNoteBtn;
 let noteList;
-// const { v4: uuidv4 } = require('uuid');
-// const generateID = () => {
-//     return uuidv4();
-// };
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -80,8 +76,8 @@ const deleteNote = (id) =>
 let activeNote = {};
 
 const renderActiveNote = () => {
-  // hide(saveNoteBtn);
-  // hide(clearBtn);
+  hide(saveNoteBtn);
+  hide(clearBtn);
 
   if (activeNote.id) {
     show(newNoteBtn);
