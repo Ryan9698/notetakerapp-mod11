@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const homeRoutes = require('./routes/homeRoutes')
 const apiRoutes = require('./routes/apiRoutes')
+const index = require("./public/index")
 
 const app = express();
 const PORT = process.env.port || 3001;
@@ -12,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
 
-// let notes = [];
+let notes = [];
 
 // app.get('/api/notes', (req, res) => {
 //   res.sendFile(path.join(__dirname, '/public/notes.html'))

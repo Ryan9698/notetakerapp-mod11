@@ -22,7 +22,7 @@ const hide = (elem) => {
 };
 
 const getNotes = () =>
-  fetch('/notes', {
+  fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
