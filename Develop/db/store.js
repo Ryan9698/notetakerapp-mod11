@@ -1,5 +1,10 @@
 const util = require('util');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+const generateID = () => {
+    return uuidv4();
+};
+
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -25,13 +30,23 @@ class Store {
             return parsedNotes;
         });
     }
-    
+   
     addNote(note) {
-
+        note.id = uuidv4();
+        return this.getNotes()
+            .then((notes) => {
+                const updatedNotes = [...notes, note];
+                return this.write(updatedNotes);
+            })
+            .then(() => note);
     }
 
     removeNote(id) {
-
+        return this.getNotes()
+            .then((notes) => {
+                const updatedNotes = notes.filter((note) => note.id !== id);
+                return this.write(updatedNotes);
+            });
     }
 };
 

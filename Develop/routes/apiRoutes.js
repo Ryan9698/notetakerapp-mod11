@@ -12,7 +12,6 @@ router.get('/notes', (req, res) => {
         })
         .catch((err) => res.status(500).json(err)); 
 
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
 });
 
 router.post('/notes', (req, res) => {
