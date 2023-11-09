@@ -9,6 +9,7 @@ const PORT = process.env.port || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
 
@@ -29,8 +30,6 @@ let notes = [];
 //     return notes;
 //   });
 
-
-app.use(express.static('public'));
 
 // app.post('/api/notes', (req, res) => {
 //     const newNote = req.body;
