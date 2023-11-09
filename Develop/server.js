@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
 
-// let notes = [];
+let notes = [];
 
 // app.get('/api/notes', (req, res) => {
 //   res.sendFile(path.join(__dirname, '/public/notes.html'))
