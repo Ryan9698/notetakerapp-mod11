@@ -30,3 +30,7 @@ Source files including HTML, CSS, and index.js were supplied by the coding boot 
 There is no license for this project.
 
 ## Link:
+
+## Screenshot of Note Taker Functionality
+
+![Note Taker](./assets/notetaker.png)
