@@ -12,7 +12,8 @@ multiple html files and link them together.
 
 To use this app, the user needs to have express, uuid, and path installed prior to running the code. To install these packages, the user opens the
 terminal in VSCode and uses the command 'npm i express', 'npm i uuid', and 'npm i path' and After installation, the user runs server.js
-using the command 'node server.js' and accesses the the local host at port 3001 using: http://localhost:3001/
+using the command 'node server.js' and accesses the the local host at port 3001 using: http://localhost:3001/. Alternatively, the user can follow
+the link to the Heroku app posted in Link.
 
 ## Usage
 
@@ -30,6 +31,8 @@ Source files including HTML, CSS, and index.js were supplied by the coding boot 
 There is no license for this project.
 
 ## Link:
+
+Heroku App: https://notetakerappmod11-d68623477843.herokuapp.com/
 
 ## Screenshot of Note Taker Functionality
 
