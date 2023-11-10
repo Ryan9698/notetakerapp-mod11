@@ -30,9 +30,3 @@ Source files including HTML, CSS, and index.js were supplied by the coding boot 
 There is no license for this project.
 
 ## Link:
-
-[Video of Operation](https://drive.google.com/file/d/1OfqxGtfdXuVBCdWQ5B20Ii4qNo2nWtNh/view)
-
-## Screenshot of Terminal and Generated README
-
-![RenderedSVG](./assets/SVG.png)
